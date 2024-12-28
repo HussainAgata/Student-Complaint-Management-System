@@ -1,0 +1,108 @@
+*{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+   
+}
+
+.logo img{
+    width: 130px;
+    display: flex;
+    margin: auto;
+}
+h3{
+    text-align: center;
+    font-size: xx-large;
+}
+
+label{
+    margin-left: 10px;
+    font-weight: 600;
+}
+label, h3{
+    font-weight: 0;
+    color: #fff;
+}
+input, textarea, select{
+    background-color: transparent;
+    border: 1px solid #ffffff;
+    color: #fff;
+    margin: 10px;
+    width: 90%;
+    
+}
+select{
+    height: 30px;
+    border: 1px solid #ffffff;
+
+}
+textarea{
+    color: #ffffff;
+    padding: 5px 10px;
+    margin-top: 20px;
+}
+
+input{
+    padding: 5px 10px;
+    background-color: transparent;
+    border: 1px solid #ffffff;
+    color: #fff;
+}
+option{
+    background-color: rgba(63, 68, 68, 0.514);
+}
+
+:focus{
+    outline: none;
+}
+.container{
+    background-image: url(images/bg\ 1.webp);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 85px 0;
+}
+
+
+.form-card{
+    background-color: rgba(63, 68, 68, 0.514);
+    width: 50%;
+    margin: auto;
+    display: grid;
+    place-items: center;
+    padding: 30px 20px;
+}
+
+.btn{
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+    align-items: center;
+    margin: 20px;
+    padding: 10px 15px;
+}
+.btn:hover{
+    transform: scale(0.9);
+}
+.button{
+   
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 20px;
+    margin-top: 80px;
+}
+form{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width:500px){
+    .form-card{
+        width: 95%;
+    }
+    
+}
