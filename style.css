@@ -7,17 +7,19 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
    
 }
-
+/*logo*/
 .logo img{
     width: 130px;
     display: flex;
     margin: auto;
 }
+
+/*h3*/
 h3{
     text-align: center;
     font-size: xx-large;
 }
-
+/*all label*/
 label{
     margin-left: 10px;
     font-weight: 600;
@@ -26,6 +28,8 @@ label, h3{
     font-weight: 0;
     color: #fff;
 }
+
+/*all input*/
 input, textarea, select{
     background-color: transparent;
     border: 1px solid #ffffff;
@@ -43,6 +47,7 @@ textarea{
     color: #ffffff;
     padding: 5px 10px;
     margin-top: 20px;
+    margin-left: -1PX;
 }
 
 input{
@@ -58,6 +63,8 @@ option{
 :focus{
     outline: none;
 }
+
+/*container*/
 .container{
     background-image: url(images/bg\ 1.webp);
     background-position: center;
@@ -66,43 +73,61 @@ option{
     padding: 85px 0;
 }
 
-
+/*form-card*/
 .form-card{
     background-color: rgba(63, 68, 68, 0.514);
     width: 50%;
     margin: auto;
-    display: grid;
-    place-items: center;
     padding: 30px 20px;
 }
 
+form{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+/*button*/
 .btn{
     background-color: transparent;
     color: #fff;
     border: 1px solid #fff;
     align-items: center;
-    margin: 20px;
+    margin: 10px;
     padding: 10px 15px;
+    margin-right: 0PX;
 }
 .btn:hover{
     transform: scale(0.9);
 }
 .button{
-   
+    margin-top: -59px;
+    margin-bottom: 20px;
     display: flex;
     justify-content: space-around;
-    align-items: center;
+    align-items: start;
     height: 20px;
-    margin-top: 80px;
 }
-form{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
+/*end*/
 
-@media (max-width:500px){
+
+@media (max-width:600px){
+    
     .form-card{
-        width: 95%;
+        width: 75%;
+        border-radius: 10px;
+    }
+
+    form{
+        display: flex;
+    flex-direction: column;        
+    }
+    .button{
+        margin-bottom: 20px;
+        margin: auto;
+        margin-bottom: 40px;
+        height: 20px;
+    }
+    .btn{
+        margin: 10px;
     }
     
 }
