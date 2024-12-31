@@ -16,24 +16,24 @@
             <!--h3-->
             <h3 style="color: rgb(8, 8, 131);">Make Your Complain</h3>
             <!--form-->
-            <form action="">
+            <form id="complaintForm">
 
                 <!--student anme-->
                 <div>
-                    <label>Name:</label>
-                <input type="text" required> 
+                    <label for="username">Name:</label>
+                <input type="text" id="username" name="username" required> 
                 </div>
 
                 <!--Reg No-->
                 <div>
-                    <label>Matric No:</label>
-                    <input type="text" required>
+                    <label for="matricNo">Matric No:</label>
+                    <input type="text" name="matricNo" id="matricNo" required>
                 </div>
 
                 <!--Department-->
                 <div>
                     <label>Department</label>
-                    <input type="text" required>
+                    <input type="text" id="department" name="department" required>
                 <!--<select>
                     <option value="">Select Department</option>
                     <option value="">Computer</option>
@@ -51,11 +51,11 @@
                 <!--Faculty-->
                 <div>
                     <label>Faculty:</label>
-                <select>
+                <select id="faculty" name="faculty" required>
                     <option value="">Select Faculty</option>
-                    <option value="">Faculty of Science and Computing</option>
-                    <option value="">Faculty of Humanities, Social and Management Sciences</option>
-                    <option value="">Faculty of Education</option>
+                    <option value="faculty of science and computing">Faculty of Science and Computing</option>
+                    <option value="faculty of humanities, social and management sciences">Faculty of Humanities, Social and Management Sciences</option>
+                    <option value="faculty of education">Faculty of Education</option>
                 </select> 
                 </div>
 
@@ -73,12 +73,13 @@
 
                 <div>
                     <label>Nature Of Complaint</label>
-                <select>
+                <select id="nature" name="nature">
                     <option value="">Nature Of Complaint</option>
-                    <option value="">Departmental Complain</option>
-                    <option value="">Faculty Complain</option>
-                    <option value="">Report Lecturer</option>
-                    <option value="">Others</option>
+                    <option value="departmental complain">Departmental Complain</option>
+                    <option value="faculty complain">Faculty Complain</option>
+                    <option value="report lecturer">Report Lecturer</option>
+                    <option value="others
+                    ">Others</option>
                 </select> 
                 </div>
 
@@ -86,17 +87,49 @@
                 <!--Text area-->
                 <div class="txt">
                     <label for="message"> </label>
-                <textarea name="message" id="message" rows="8" cols="30" placeholder="Write Your Complain"></textarea> <br>
+                <textarea name="complaint" id="complaint" rows="8" cols="30" placeholder="Write Your Complain"></textarea> <br>
 
                 </div>
                 <!--btn-->
-                <div class="button">
-                    <a href="index.html" class="btn" style="color: red;">Clear</a>
-                <button class="btn">Submit</button>
+                <div class="buttons">
+                    <button type="reset" class="clear-btn" style="background-color: red;">Clear</button>
+                <button class="button" class="submit-btn" onclick="sendEmail()" >Submit</button>
                 </div>
                 
             </form>
         </div>
     </div>
+
+    <script src="https://cdn.jsdeliver.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        //initialized EmailJS with user ID//
+        emailjs.init("AinwyN9LzOhsYnRJ6");
+
+        //Function To Send The Email//
+        function sendEmail(){
+            const form = document.getElementById("complaintForm");
+            const formData = {
+                username: form.username.value,
+                matricNo: form.matricNo.value,
+                faculty: form.faculty.value,
+                department: form.department.value,
+                nature: form.nature.value,
+                complaint: form.complaint.value,
+            };
+
+            //send the email using emailJS//
+            emailjs
+            .send("service_e61bu5k", "template_tyz5gqk", formData)
+            .then(() => {
+
+                alert("complaint Submitted Successfully!");
+                form.reset();
+                
+            }).catch((error) => {
+                alert("Failed to Send Complaint. Please try again later.")
+                console.error("Error details:", error);
+            });
+        }
+    </script>
 </body>
 </html>
